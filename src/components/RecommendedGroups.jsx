@@ -8,7 +8,6 @@ import { UserContext } from "../context/UserContext";
 const RecommendedGroups = () => {
   const { isLoggedIn } = useContext(UserContext);
 
-  // Define recommended groups array
   const recommendedGroups = [
     { name: "Leisure", img: "./R_user1.png" },
     { name: "Activism", img: "./R_user2.png" },

@@ -8,10 +8,11 @@ import { IoEyeSharp } from "react-icons/io5";
 import { ImExit } from "react-icons/im";
 import { UserContext } from "../context/UserContext";
 import { Dropdown } from "react-bootstrap";
+import posts from "../constant/post.json"
 
 const PostSection = () => {
   const [activeTab, setActiveTab] = useState("All Post");
-  const [filter, setFilter] = useState(""); // Added filter state
+  const [filter, setFilter] = useState("All Post");
   const section = ["All Post", "Article", "Event", "Education", "Job"];
   const [showDropdown, setShowDropdown] = useState(false);
   const { isJoinedGrp, setIsJoinedGrp } = useContext(UserContext);
@@ -28,43 +29,14 @@ const PostSection = () => {
     setIsJoinedGrp((prev) => !prev); 
   };
 
-  const posts = [
-    {
-      url: "./post1.png",
-      category: "✍️ Article",
-      title: "What if famous brands had regular fonts? Meet RegulaBrands!",
-      description: "I've worked in UX for the better part of a decade. From now on, I plan to rei…",
-      author: "Sarthak Kumar",
-      authorImg: "./author1.png",
-      view: 1.4,
-    },
-    {
-      url: "./post2.png",
-      category: "🔬️ Education",
-      title: "How to create a responsive website using React",
-      description: "In this tutorial, we will learn how to create a responsive website using React and CSS…",
-      author: "Jane Doe",
-      authorImg: "./author2.png",
-      view: 2.3,
-    },
-    {
-      url: "./post3.png",
-      category: "🗓️ Meetup",
-      title: "Latest updates in the tech industry",
-      description: "Stay updated with the latest news and trends in the tech industry. This week we cover…",
-      author: "John Smith",
-      authorImg: "./author3.png",
-      view: 3.1,
-    },
-  ];
-
   return (
     <div className="container-fluid container-lg mt-4 mt-lg-5 px-3 px-lg-5">
-      <header className="sticky-top bg-white border-bottom" style={{ top: "72px", zIndex: "1020" }}>
+      <header className="sticky-top bg-white border-bottom d-none d-md-block" style={{ top: "72px", zIndex: "1020" }}>
         <div className="container-fluid container-lg px-3 px-lg-5">
           <div className="row align-items-center py-2">
+            
             {/* Desktop Navigation */}
-            <div className="col-md-8 d-none d-md-block">
+            <div className="col-md-8">
               <nav className="nav">
                 {section.map((item, index) => (
                   <span
@@ -83,28 +55,7 @@ const PostSection = () => {
               </nav>
             </div>
 
-            
-            <div className="col-12 d-md-none">
-              <div className="d-flex justify-content-between align-items-center">
-                <span className="nav-link fw-semibold pb-2 border-bottom border-3 border-dark">
-                  All Posts
-                </span>
-                <select 
-                  className="form-select w-auto"
-                  value={filter}
-                  onChange={handleFilterChange}
-                >
-                  <option value="" disabled>Filter: All</option>
-                  <option value="all">All</option>
-                  <option value="education">Education</option>
-                  <option value="job">Job</option>
-                  <option value="event">Event</option>
-                </select>
-              </div>
-            </div>
-
-            
-            <div className="col-md-4 d-none d-md-flex justify-content-end gap-3">
+            <div className="col-md-4 d-flex justify-content-end gap-3">
               <button className="btn btn-secondary d-flex align-items-center gap-2">
                 Write a Post <FaCaretDown />
               </button>
@@ -127,9 +78,29 @@ const PostSection = () => {
         </div>
       </header>
 
+      {/* Mobile Header */}
+      <header className="sticky-top bg-white border-bottom d-md-none" style={{ top: "0", zIndex: "1020" }}>
+        <div className="container-fluid px-3">
+          <div className="d-flex justify-content-between align-items-center py-2">
+            <span className="nav-link fw-semibold pb-2 border-bottom border-3 border-dark">
+              {filter}
+            </span>
+            <select 
+              className="form-select w-auto"
+              value={filter}
+              onChange={handleFilterChange}
+            >
+              <option value="All Post">All Post</option>
+              <option value="Education">Education</option>
+              <option value="Job">Job</option>
+              <option value="Event">Event</option>
+            </select>
+          </div>
+        </div>
+      </header>
+
       {/* Main Content */}
       <div className="row g-4 mt-2">
-        {/* Posts Column */}
         <div className="col-12 col-lg-8">
           {posts.map((post, idx) => (
             <div key={idx} className="mb-4">
@@ -137,7 +108,6 @@ const PostSection = () => {
             </div>
           ))}
         </div>
-
         
         <div className="col-lg-4 d-none d-lg-block">
           <div className="sticky-top" style={{ top: "150px" }}>

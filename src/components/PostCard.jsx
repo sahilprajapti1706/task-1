@@ -13,12 +13,12 @@ const PostCard = ({ post }) => {
   return (
     <div className="card my-3 mx-auto" style={{ maxWidth: "670px" }}>
       <div className="col-12">
-        <img
-          src={post.url}
+        {post?.url && <img
+          src={post?.url}
           className="img-fluid rounded-top"
           alt=""
           style={{ width: "100%", height: "220px", objectFit: "cover" }}
-        />
+        />}
       </div>
       <div className="card-body">
         <h5 className="card-title fs-6 text-muted">{post.category}</h5>
@@ -36,6 +36,7 @@ const PostCard = ({ post }) => {
           </div>
         </div>
         <p className="card-text fs-6 text-muted">{post.description}</p>
+        <button className={`btn btn-outline border-2 border-black w-100 d-block ${post?.btnText ? "" : "d-none"}`}>{post.btnText}</button>
         <div className="d-flex justify-content-between align-items-center mt-3">
           <div className="d-flex align-items-center">
             <img

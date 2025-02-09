@@ -1,0 +1,39 @@
+[
+    {
+        "url": "./post1.png",
+        "category": "✍️ Article",
+        "title": "What if famous brands had regular fonts? Meet RegulaBrands!",
+        "description": "I've worked in UX for the better part of a decade. From now on, I plan to rei…",
+        "author": "Sarthak Kumar",
+        "authorImg": "./author1.png",
+        "view": 1.4
+    },
+    {
+        "url": "./post2.png",
+        "category": "🔬️ Education",
+        "title": "How to create a responsive website using React",
+        "description": "In this tutorial, we will learn how to create a responsive website using React and CSS…",
+        "author": "Jane Doe",
+        "authorImg": "./author2.png",
+        "view": 2.3
+    },
+    {
+        "url": "./post3.png",
+        "category": "🗓️ Meetup",
+        "title": "Latest updates in the tech industry",
+        "description": "Stay updated with the latest news and trends in the tech industry. This week we cover…",
+        "btnText" : "Visit Website",
+        "author": "John Smith",
+        "authorImg": "./author3.png",
+        "view": 3.1
+    },
+    {
+        "category": "💼️ Job",
+        "title": "Software Developer",
+        "description": "We need a experience software developer",
+        "btnText" : "Apply on Timesjobs",
+        "author": "Joseph Gray",
+        "authorImg": "./user.png",
+        "view": 1.4
+    }
+]
